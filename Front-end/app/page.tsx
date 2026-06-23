@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || 'https://calculadora-de-investimento.onrender.com/api/calculadora';
+const API_URL = process.env.NEXT_PUBLIC_API_URL || 'https://calculadora-de-investimento.onrender.com';
 
 export default function Home() {
   const [abaAtiva, setAbaAtiva] = useState<'investimento' | 'financiamento' | 'imovel'>('investimento');
@@ -35,7 +35,7 @@ export default function Home() {
   const calcularInvestimento = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const res = await fetch(`${API_URL}/investimento`, {
+      const res = await fetch(`${API_URL}/api/calculadora/investimento`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -58,7 +58,7 @@ export default function Home() {
   const calcularFinanciamento = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const res = await fetch(`${API_URL}/financiamento`, {
+      const res = await fetch(`${API_URL}/api/calculadora/financiamento`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -78,7 +78,7 @@ export default function Home() {
   const calcularImovel = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const res = await fetch(`${API_URL}/imovel`, {
+      const res = await fetch(`${API_URL}/api/calculadora/imovel`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
