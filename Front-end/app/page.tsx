@@ -2,9 +2,7 @@
 
 import { useState } from 'react';
 
-// IMPORTANTE: Altere o número da porta (5001, 7123, etc.) para coincidir exatamente 
-// com a URL HTTPS que o seu terminal do .NET ('dotnet run') exibiu.
-const API_URL = 'http://localhost:5190/api/calculadora';
+const API_URL = process.env.NEXT_PUBLIC_API_URL || 'https://calculadora-de-investimento.onrender.com/api/calculadora';
 
 export default function Home() {
   const [abaAtiva, setAbaAtiva] = useState<'investimento' | 'financiamento' | 'imovel'>('investimento');
